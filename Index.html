@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faustine Luciani-Zimmermann — Projet académique</title>
+  <meta name="description" content="Site personnel de Faustine Luciani-Zimmermann pour ses candidatures en Master de Psychologie Clinique." />
+  <style>
+    :root{
+      --bg:#f8f2ed;
+      --bg-soft:#fcf8f5;
+      --card:rgba(255,255,255,.68);
+      --card-strong:#fffaf7;
+      --beige:#ead9d1;
+      --nude:#efe4dc;
+      --blush:#f3eae4;
+      --rose:#e7d2c8;
+      --text:#473b36;
+      --title:#2f2521;
+      --muted:#7c6c64;
+      --line:rgba(194,163,147,.24);
+      --accent:#a78372;
+      --shadow:0 18px 50px rgba(138,107,90,.10);
+      --shadow-soft:0 10px 30px rgba(138,107,90,.07);
+      --radius:30px;
+      --radius-sm:22px;
+      --max:1220px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      line-height:1.75;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(234,217,209,.92), transparent 22%),
+        radial-gradient(circle at 92% 18%, rgba(239,228,220,.92), transparent 22%),
+        radial-gradient(circle at 50% 100%, rgba(243,234,228,.95), transparent 28%),
+        linear-gradient(180deg, #f9f4ef 0%, #f7efe9 45%, #fbf8f5 100%);
+      min-height:100vh;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,255,255,.55), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.35), transparent 25%);
+      z-index:0;
+    }
+
+    h1,h2,h3{
+      font-family: Georgia, "Times New Roman", serif;
+      margin:0;
+      color:var(--title);
+      letter-spacing:.01em;
+    }
+
+    a{color:inherit}
+
+    .container{
+      width:min(var(--max), calc(100% - 34px));
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter: blur(16px);
+      background:rgba(248,242,237,.72);
+      border-bottom:1px solid rgba(194,163,147,.18);
+    }
+
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:16px 0;
+    }
+
+    .brand{
+      font-size:12px;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      font-size:14px;
+      color:var(--muted);
+      padding:9px 14px;
+      border-radius:999px;
+      transition:.22s ease;
+      border:1px solid transparent;
+    }
+
+    .nav-links a:hover{
+      background:rgba(255,255,255,.58);
+      border-color:rgba(194,163,147,.2);
+      color:var(--title);
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      padding:36px 0 18px;
+    }
+
+    .grid-hero{
+      display:grid;
+      grid-template-columns:1.14fr .86fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .card{
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:var(--card);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(255,255,255,.34), transparent 38%);
+      pointer-events:none;
+    }
+
+    .hero-main{
+      padding:44px;
+      min-height:465px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:max-content;
+      font-size:11px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:18px;
+      font-weight:700;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.58);
+      border:1px solid rgba(194,163,147,.22);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:linear-gradient(180deg, #c8a695, #a78372);
+      box-shadow:0 0 0 5px rgba(167,131,114,.12);
+    }
+
+    .hero h1{
+      font-size:clamp(2.7rem, 5vw, 5.4rem);
+      line-height:.95;
+      margin-top:8px;
+    }
+
+    .accent{
+      display:block;
+      color:#a07d6d;
+    }
+
+    .lead{
+      font-size:1.08rem;
+      color:#5e514b;
+      max-width:760px;
+      margin-top:24px;
+      line-height:1.9;
+    }
+
+    .cta{
+      margin-top:24px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      padding:13px 18px;
+      border-radius:999px;
+      border:1px solid rgba(194,163,147,.26);
+      background:rgba(255,255,255,.75);
+      color:#342b27;
+      font-weight:600;
+      transition:.22s ease;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 34px rgba(138,107,90,.12);
+    }
+
+    .btn.secondary{
+      background:rgba(243,234,228,.65);
+    }
+
+    .hero-boxes{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .mini{
+      border-radius:24px;
+      padding:18px;
+      border:1px solid rgba(194,163,147,.16);
+      background:linear-gradient(180deg, rgba(255,255,255,.70), rgba(244,235,230,.78));
+      box-shadow:var(--shadow-soft);
+    }
+
+    .mini:nth-child(2){
+      background:linear-gradient(180deg, rgba(243,231,223,.92), rgba(255,255,255,.72));
+    }
+
+    .mini:nth-child(3){
+      background:linear-gradient(180deg, rgba(239,224,215,.94), rgba(255,255,255,.72));
+    }
+
+    .mini .label{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      color:var(--muted);
+      font-weight:700;
+      margin-bottom:8px;
+    }
+
+    .mini strong{
+      display:block;
+      font-size:15px;
+      color:var(--title);
+      font-weight:600;
+      line-height:1.55;
+    }
+
+    .hero-side{
+      padding:20px;
+    }
+
+    .hero-side-inner{
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.38), transparent 30%),
+        linear-gradient(180deg, rgba(234,217,209,.92), rgba(239,228,220,.96));
+      border-radius:26px;
+      padding:30px;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      border:1px solid rgba(194,163,147,.18);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.36);
+    }
+
+    .profile-intro{
+      font-size:1rem;
+      color:#4d413c;
+      line-height:1.95;
+    }
+
+    .contact-panel{
+      margin-top:22px;
+      background:rgba(255,255,255,.42);
+      border:1px solid rgba(255,255,255,.55);
+      border-radius:24px;
+      padding:18px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .contact-list{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+      color:#473c37;
+    }
+
+    .contact-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.48);
+      border:1px solid rgba(255,255,255,.45);
+    }
+
+    .contact-item span:last-child{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .grid-two{
+      display:grid;
+      grid-template-columns:.97fr 1.03fr;
+      gap:22px;
+      margin-top:22px;
+    }
+
+    .content{
+      padding:34px;
+    }
+
+    .section-title{
+      font-size:11px;
+      letter-spacing:.30em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:18px;
+      font-weight:700;
+    }
+
+    .section-headline{
+      font-size:2.25rem;
+      line-height:1.08;
+      margin-bottom:12px;
+    }
+
+    .muted{
+      color:var(--muted);
+      font-size:.92rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+    }
+
+    .spaced > * + *{
+      margin-top:18px;
+    }
+
+    .highlight{
+      padding:22px;
+      border-radius:26px;
+      background:linear-gradient(135deg, rgba(255,255,255,.74), rgba(247,239,233,.92));
+      border:1px solid rgba(194,163,147,.14);
+      box-shadow:var(--shadow-soft);
+    }
+
+    ul.clean{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    ul.clean li{
+      position:relative;
+      padding:14px 16px 14px 42px;
+      border-radius:20px;
+      background:rgba(255,255,255,.62);
+      border:1px solid rgba(194,163,147,.14);
+      box-shadow:var(--shadow-soft);
+    }
+
+    ul.clean li::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:linear-gradient(180deg, #c8a695, #a78372);
+      position:absolute;
+      left:18px;
+      top:22px;
+      box-shadow:0 0 0 6px rgba(167,131,114,.08);
+    }
+
+    .motivation-stack{
+      display:grid;
+      gap:14px;
+    }
+
+    .motivation-box{
+      padding:20px 22px;
+      border-radius:24px;
+      background:linear-gradient(135deg, rgba(255,255,255,.75), rgba(245,236,231,.88));
+      border:1px solid rgba(194,163,147,.16);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .motivation-number{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      color:#7f6051;
+      background:#f1e2da;
+      margin-bottom:10px;
+    }
+
+    .triple{
+      display:grid;
+      grid-template-columns:1.1fr .9fr .9fr;
+      gap:22px;
+      margin-top:22px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:11px;
+    }
+
+    .tag{
+      background:linear-gradient(180deg, rgba(248,239,233,.98), rgba(255,255,255,.92));
+      border:1px solid rgba(194,163,147,.16);
+      border-radius:999px;
+      padding:10px 15px;
+      font-size:14px;
+      color:#534640;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .qualities{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+
+    .quality{
+      padding:16px 14px;
+      text-align:center;
+      border-radius:20px;
+      background:rgba(255,255,255,.68);
+      border:1px solid rgba(194,163,147,.15);
+      box-shadow:var(--shadow-soft);
+      font-size:14px;
+      color:#4f433d;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:22px;
+      margin-top:22px;
+      margin-bottom:28px;
+    }
+
+    .soft-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .soft{
+      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(246,239,234,.96));
+      border:1px solid rgba(194,163,147,.16);
+      border-radius:24px;
+      padding:20px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .soft strong{
+      display:block;
+      color:var(--title);
+      font-size:1rem;
+      margin-bottom:8px;
+    }
+
+    .contact-final{
+      display:grid;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .contact-final a{
+      text-decoration:none;
+    }
+
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      padding:10px 0 34px;
+      font-size:14px;
+    }
+
+    @media (max-width: 1080px){
+      .hero-boxes{grid-template-columns:1fr}
+      .triple{grid-template-columns:1fr}
+      .qualities{grid-template-columns:repeat(3,1fr)}
+    }
+
+    @media (max-width: 980px){
+      .grid-hero,.grid-two,.split{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 720px){
+      .qualities,.soft-grid{grid-template-columns:1fr}
+      .hero-main,.content{padding:24px}
+      .hero-side{padding:14px}
+      .nav-inner{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Projet académique</div>
+      <div class="nav-links">
+        <a href="#parcours">Parcours</a>
+        <a href="#motivations">Motivations</a>
+        <a href="#interets">Intérêts</a>
+        <a href="#qualites">Qualités</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container">
+    <div class="grid-hero">
+      <section class="card hero-main">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Master Psychologie Clinique</div>
+          <h1>Faustine Luciani-<span class="accent">Zimmermann</span></h1>
+          <p class="lead">
+            Titulaire d’une licence de psychologie, je souhaite intégrer un master de psychologie clinique afin d’approfondir ma compréhension du fonctionnement psychique, de la souffrance psychologique et de la relation thérapeutique dans une démarche rigoureuse, humaine et engagée.
+          </p>
+          <div class="cta">
+            <a class="btn" href="#motivations">Lire mes motivations</a>
+            <a class="btn secondary" href="#contact">Me contacter</a>
+          </div>
+        </div>
+
+        <div class="hero-boxes">
+          <div class="mini">
+            <div class="label">Ville</div>
+            <strong>Six-Fours-les-Plages</strong>
+          </div>
+          <div class="mini">
+            <div class="label">Objectif</div>
+            <strong>Intégrer un master de psychologie clinique</strong>
+          </div>
+          <div class="mini">
+            <div class="label">Approche</div>
+            <strong>Écoute, empathie, réflexion clinique</strong>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card hero-side">
+        <div class="hero-side-inner">
+          <div>
+            <div class="section-title" style="margin-bottom:12px;color:#6a5952;">Profil</div>
+            <p class="profile-intro">
+              Mon parcours universitaire, mes formations complémentaires et mes expériences professionnelles m’ont permis de développer des qualités essentielles à la pratique clinique : écoute active, empathie, sens de l’observation, adaptabilité et intérêt constant pour la relation d’aide.
+            </p>
+          </div>
+
+          <div class="contact-panel">
+            <div class="section-title" style="margin-bottom:12px;color:#6a5952;">Contact</div>
+            <div class="contact-list">
+              <div class="contact-item"><strong>Email</strong><span><a href="mailto:faustinezimluciani@outlook.fr">faustinezimluciani@outlook.fr</a></span></div>
+              <div class="contact-item"><strong>Téléphone</strong><span><a href="tel:+33670451449">06 70 45 14 49</a></span></div>
+              <div class="contact-item"><strong>LinkedIn</strong><span><a href="https://linkedin.com/in/faustine-luciani-zimmermann" target="_blank" rel="noreferrer">Voir le profil</a></span></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="parcours" class="grid-two">
+      <div class="card content">
+        <div class="section-title">Mon parcours</div>
+        <h2 class="section-headline">Une formation en psychologie nourrie par une réflexion clinique</h2>
+        <div class="spaced">
+          <div class="highlight">
+            <h3>Licence de Psychologie</h3>
+            <div class="muted">Aix-Marseille Université · 2016 — 2019</div>
+            <p>
+              Cette formation universitaire m’a permis d’explorer la psychopathologie, la psychologie du développement, la psychologie sociale, l’observation clinique et l’analyse du comportement. Elle a consolidé mon intérêt pour la compréhension des parcours psychiques singuliers.
+            </p>
+          </div>
+          <div>
+            <h3 style="margin-bottom:12px;">Formations complémentaires</h3>
+            <ul class="clean">
+              <li>Praticien en hypnose ericksonienne — PSYNAPSE</li>
+              <li>Praticien en hypno-analgésie — PSYNAPSE</li>
+              <li>Praticien en programmation neuro-linguistique — PSYNAPSE</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="motivations" class="card content">
+        <div class="section-title">Mes motivations</div>
+        <h2 class="section-headline">Pourquoi la psychologie clinique ?</h2>
+        <div class="motivation-stack">
+          <div class="motivation-box">
+            <div class="motivation-number">01</div>
+            Je souhaite approfondir mes connaissances théoriques et développer une approche clinique à la fois rigoureuse, humaine et éthique.
+          </div>
+          <div class="motivation-box">
+            <div class="motivation-number">02</div>
+            Mon intérêt s’inscrit dans une volonté de mieux comprendre les processus psychiques, les vécus subjectifs et les fragilités psychologiques dans leur singularité.
+          </div>
+          <div class="motivation-box">
+            <div class="motivation-number">03</div>
+            La relation thérapeutique représente pour moi un espace essentiel de compréhension, d’écoute et d’accompagnement, que je souhaite approfondir dans une formation exigeante.
+          </div>
+          <div class="motivation-box">
+            <div class="motivation-number">04</div>
+            Intégrer ce master constitue une étape essentielle pour affiner ma posture clinique, enrichir ma réflexion et m’inscrire durablement dans un parcours universitaire cohérent.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="triple">
+      <div class="card content">
+        <div class="section-title">Expériences</div>
+        <div class="spaced">
+          <div class="highlight">
+            <h3>Prothésiste ongulaire · Auto-entrepreneur</h3>
+            <div class="muted">Depuis 2022</div>
+            <p>Gestion d’activité, relation client, autonomie, sens de l’organisation et qualité d’écoute dans l’accompagnement des besoins individuels.</p>
+          </div>
+          <div class="highlight">
+            <h3>Vendeuse · Picard Surgelés</h3>
+            <div class="muted">2019 — 2021</div>
+            <p>Accueil, conseil, travail en équipe, rigueur dans les missions quotidiennes et adaptation aux différents publics.</p>
+          </div>
+          <div class="highlight">
+            <h3>Stages</h3>
+            <p>APHM Hôpital Nord · Cours Florent · ORPI Barsotti</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="interets" class="card content">
+        <div class="section-title">Centres d’intérêt en psychologie</div>
+        <h2 class="section-headline" style="font-size:1.8rem;">Axes de réflexion</h2>
+        <div class="tags">
+          <span class="tag">Psychopathologie</span>
+          <span class="tag">Entretien clinique</span>
+          <span class="tag">Relation thérapeutique</span>
+          <span class="tag">Processus émotionnels</span>
+          <span class="tag">Écoute et accompagnement</span>
+          <span class="tag">Fonctionnement psychique</span>
+          <span class="tag">Vulnérabilité psychique</span>
+        </div>
+      </div>
+
+      <div id="qualites" class="card content">
+        <div class="section-title">Qualités</div>
+        <h2 class="section-headline" style="font-size:1.8rem;">Compétences humaines</h2>
+        <div class="qualities">
+          <div class="quality">Écoute active</div>
+          <div class="quality">Empathie</div>
+          <div class="quality">Rigueur</div>
+          <div class="quality">Capacité d’adaptation</div>
+          <div class="quality">Autonomie</div>
+          <div class="quality">Travail en équipe</div>
+          <div class="quality">Curiosité intellectuelle</div>
+          <div class="quality">Sens de l’observation</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="card content">
+        <div class="section-title">Ouverture personnelle</div>
+        <h2 class="section-headline" style="font-size:2rem;">Une sensibilité nourrie aussi par l’expérience</h2>
+        <p>
+          En parallèle de mon parcours universitaire, mes centres d’intérêt personnels — voyages, sport, lecture, écriture, cinéma, dessin et bénévolat — nourrissent mon regard sur les parcours de vie, les émotions et les formes d’expression humaine. Ils participent à une compréhension plus fine de la diversité des expériences individuelles.
+        </p>
+      </div>
+
+      <div class="card content">
+        <div class="soft-grid">
+          <div class="soft">
+            <strong>Sports</strong>
+            Tennis, équitation, boxe, wushu, danse
+          </div>
+          <div class="soft">
+            <strong>Engagement</strong>
+            Association Les Amis de l’Arche de Noé
+          </div>
+          <div class="soft">
+            <strong>Culture</strong>
+            Cinéma, lecture, écriture, dessin
+          </div>
+          <div class="soft">
+            <strong>Création</strong>
+            Montage photo et vidéo
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="card content" style="margin-bottom:20px">
+      <div class="section-title">Contact</div>
+      <h2 class="section-headline" style="font-size:2rem;">Échanger autour de mon projet</h2>
+      <div class="contact-final">
+        <div><strong>Faustine Luciani-Zimmermann</strong></div>
+        <div>Six-Fours-les-Plages, France</div>
+        <div><a href="mailto:faustinezimluciani@outlook.fr">faustinezimluciani@outlook.fr</a></div>
+        <div><a href="tel:+33670451449">06 70 45 14 49</a></div>
+        <div><a href="https://linkedin.com/in/faustine-luciani-zimmermann" target="_blank" rel="noreferrer">linkedin.com/in/faustine-luciani-zimmermann</a></div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Site de candidature — Master de Psychologie Clinique
+    </div>
+  </main>
+</body>
+</html>
